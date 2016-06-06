@@ -2077,18 +2077,18 @@ static gboolean mk_Locations_cbk(Itdb_iTunesDB *itdb, const char *dirname)
 
     checksum_type = itdb_device_get_checksum_type(itdb->device);
     switch (checksum_type) {
-	case ITDB_CHECKSUM_HASHAB:
-	    cbk_header_size = 57;
-	    break;
-	case ITDB_CHECKSUM_HASH58:
+	    case ITDB_CHECKSUM_HASHAB:
+	      cbk_header_size = 57;
+	      break;
+	    case ITDB_CHECKSUM_HASH58:
 	    /* the nano 5g advertises DBVersion 3 but expects an hash72 on
 	     * its cbk file.
 	     */
-	case ITDB_CHECKSUM_HASH72:
-	    cbk_header_size = 46;
-	    break;
-	default:
-	    break;
+	    case ITDB_CHECKSUM_HASH72:
+	      cbk_header_size = 46;
+	      break;
+	    default:
+	      break;
     }
     if (cbk_header_size == 0) {
 	fprintf(stderr, "ERROR: Unsupported checksum type '%d' in cbk file generation!\n", checksum_type);

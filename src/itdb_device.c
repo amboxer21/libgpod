@@ -293,6 +293,10 @@ static const Itdb_IpodInfo ipod_info_table [] = {
     {"C698",  16, ITDB_IPOD_MODEL_NANO_PINK,      ITDB_IPOD_GENERATION_NANO_6, 14},
     {"C699",  16, ITDB_IPOD_MODEL_NANO_RED,       ITDB_IPOD_GENERATION_NANO_6, 14},
 
+    /* iPod nano touch (Seventh Generation) */
+    {"X685",  16, ITDB_IPOD_MODEL_NANO_RED,       ITDB_IPOD_GENERATION_NANO_7, 14},
+    {"X686",  16, ITDB_IPOD_MODEL_NANO_BLACK,     ITDB_IPOD_GENERATION_NANO_7, 14},
+
     /* iPod Touch 1st gen */
     {"A623",   8, ITDB_IPOD_MODEL_TOUCH_SILVER,   ITDB_IPOD_GENERATION_TOUCH_1, 50},
     {"A627",  16, ITDB_IPOD_MODEL_TOUCH_SILVER,   ITDB_IPOD_GENERATION_TOUCH_1, 50},
@@ -435,6 +439,7 @@ static const gchar *ipod_generation_name_table [] = {
 	N_("iPhone 4"),
 	N_("Touch (4th Gen.)"),
 	N_("Nano touch (6th Gen.)"),
+	N_("Nano touch (7th Gen.)"),
 	NULL
 };
 
@@ -1397,6 +1402,7 @@ itdb_device_supports_sqlite_db (const Itdb_Device *device)
 		return FALSE;
 	    case ITDB_IPOD_GENERATION_NANO_5:
 	    case ITDB_IPOD_GENERATION_NANO_6:
+	    case ITDB_IPOD_GENERATION_NANO_7:
 	    case ITDB_IPOD_GENERATION_TOUCH_1:
 	    case ITDB_IPOD_GENERATION_TOUCH_2:
 	    case ITDB_IPOD_GENERATION_TOUCH_3:
@@ -1457,6 +1463,7 @@ itdb_device_supports_sparse_artwork (const Itdb_Device *device)
             case ITDB_IPOD_GENERATION_NANO_4:
             case ITDB_IPOD_GENERATION_NANO_5:
             case ITDB_IPOD_GENERATION_NANO_6:
+            case ITDB_IPOD_GENERATION_NANO_7:
             case ITDB_IPOD_GENERATION_CLASSIC_1:
             case ITDB_IPOD_GENERATION_CLASSIC_2:
             case ITDB_IPOD_GENERATION_CLASSIC_3:
@@ -1763,6 +1770,7 @@ gboolean itdb_device_supports_video (const Itdb_Device *device)
         case ITDB_IPOD_GENERATION_NANO_1:
         case ITDB_IPOD_GENERATION_NANO_2:
         case ITDB_IPOD_GENERATION_NANO_6:
+        case ITDB_IPOD_GENERATION_NANO_7:
             return FALSE;
         case ITDB_IPOD_GENERATION_NANO_3:
         case ITDB_IPOD_GENERATION_NANO_4:
@@ -1956,6 +1964,7 @@ ItdbChecksumType itdb_device_get_checksum_type (const Itdb_Device *device)
 	    case ITDB_IPOD_GENERATION_IPHONE_4:
 	    case ITDB_IPOD_GENERATION_TOUCH_4:
 	    case ITDB_IPOD_GENERATION_NANO_6:
+	    case ITDB_IPOD_GENERATION_NANO_7:
 		return ITDB_CHECKSUM_HASHAB;
 
 	    case ITDB_IPOD_GENERATION_UNKNOWN:
@@ -2183,6 +2192,7 @@ itdb_device_supports_podcast (const Itdb_Device *device)
 	    case ITDB_IPOD_GENERATION_NANO_4:
 	    case ITDB_IPOD_GENERATION_NANO_5:
 	    case ITDB_IPOD_GENERATION_NANO_6:
+	    case ITDB_IPOD_GENERATION_NANO_7:
 	    case ITDB_IPOD_GENERATION_SHUFFLE_1:
 	    case ITDB_IPOD_GENERATION_SHUFFLE_2:
 	    case ITDB_IPOD_GENERATION_SHUFFLE_3:
@@ -2228,6 +2238,7 @@ gboolean itdb_device_is_shuffle (const Itdb_Device *device)
         case ITDB_IPOD_GENERATION_NANO_4:
         case ITDB_IPOD_GENERATION_NANO_5:
         case ITDB_IPOD_GENERATION_NANO_6:
+        case ITDB_IPOD_GENERATION_NANO_7:
         case ITDB_IPOD_GENERATION_VIDEO_1:
         case ITDB_IPOD_GENERATION_VIDEO_2:
         case ITDB_IPOD_GENERATION_CLASSIC_1:
@@ -2276,6 +2287,7 @@ gboolean itdb_device_is_iphone_family (const Itdb_Device *device)
 	    case ITDB_IPOD_GENERATION_NANO_4:
 	    case ITDB_IPOD_GENERATION_NANO_5:
 	    case ITDB_IPOD_GENERATION_NANO_6:
+	    case ITDB_IPOD_GENERATION_NANO_7:
 	    case ITDB_IPOD_GENERATION_SHUFFLE_1:
 	    case ITDB_IPOD_GENERATION_SHUFFLE_2:
 	    case ITDB_IPOD_GENERATION_SHUFFLE_3:
@@ -2330,6 +2342,7 @@ enum ItdbShadowDBVersion itdb_device_get_shadowdb_version (const Itdb_Device *de
 	    case ITDB_IPOD_GENERATION_NANO_4:
 	    case ITDB_IPOD_GENERATION_NANO_5:
 	    case ITDB_IPOD_GENERATION_NANO_6:
+	    case ITDB_IPOD_GENERATION_NANO_7:
 	    case ITDB_IPOD_GENERATION_VIDEO_1:
 	    case ITDB_IPOD_GENERATION_VIDEO_2:
 	    case ITDB_IPOD_GENERATION_CLASSIC_1:
